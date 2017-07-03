@@ -1,0 +1,12 @@
+$header-height: 			45px !default;
+$header-background: 		#2e2e2e !default;
+
+// cmsHeader
+.cmsHeader {
+	width: 100%;
+	height: $header-height;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: $header-background;
+}

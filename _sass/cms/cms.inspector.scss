@@ -1,0 +1,158 @@
+
+// cmsInspector
+$inspector-menu-background: 		#1a1a1a !default;
+
+$inspector-background: 				#2e2e2e !default;
+$inspector-shadow: 					0px 0px 10px rgba(0,0,0,.8) !default;
+
+$inspector-head-font-size:			15px !default;
+$inspector-head-color:				#fff !default;
+$inspector-head-border:				#4fe3cc !default;
+
+
+
+// cmsInspectorNavi
+$inspectorNavi-head-color:				#f2f2f2 !default;
+		
+
+// cmsInspector
+.cmsInspector {
+	width: 355px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 100%;
+	background: $inspector-background;
+	box-shadow: $inspector-shadow;
+	padding: 45px 0 0 0;
+	overflow: hidden;
+	transition: all .55s ease-in-out, opacity .3s ease-in-out;
+	opacity: 0;
+	color: $inspectorNavi-head-color;
+		// margin-left: -320px;
+		// opacity: 1;
+
+	&--open {
+		margin-left: -355px;
+		opacity: 1;
+	}
+
+	&--window {
+		width: 100%;
+		height: 100%;
+		margin-left: 0;
+		opacity: 1;
+		left: 0;
+		top: 0;
+	}
+
+	&--full {
+		width: 655px;
+		height: 100%;
+		min-height: 300px;
+		max-height: 90%;
+	max-width: 80%;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		margin-left: 0;
+	}
+
+	// inner
+	&__inner {
+		max-height: 100%;
+		position: relative;
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding: 20px;
+
+		&:after {
+			content: "";
+			width: 100%;
+			height: 20px;
+			display: block;
+		}
+	}
+
+	// head
+	&__head {
+		color: $inspector-head-color;
+		padding-bottom: 5px;
+		border-bottom: 1px solid $inspector-head-border;
+		font-family: $cms-font-family--base;
+		font-size: $inspector-head-font-size;
+	}
+}
+
+
+
+
+
+
+// cmsInspectorNavi
+.cmsInspectorNavi {
+	width: 655px;
+	width: 100%;
+	height: 45px;
+	color: $inspectorNavi-head-color;
+	background: $inspector-menu-background;
+	position: fixed;
+	border-bottom: 1px solid #555;
+	margin-top: -45px;
+
+	ul {
+		list-style: none;
+
+		&:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+	}
+
+	&__item {
+		width: 45px;
+		height: 45px;
+		line-height: 45px;
+		padding: 0 10px;
+		display: inline-block;
+		border-right: 1px solid #555;
+		cursor: pointer;
+		position: relative;
+		float: left;
+
+		@extend .cmsMaterialIcon;
+		text-align: center;
+		font-size: 18px;
+
+		&.isActive:before {
+			color: $inspector-head-border;
+		}
+
+		&.isActive:after {
+			content: "";
+			width: 100%;
+			height: 1px;
+			background: $inspector-head-border;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
+		&:hover {
+			background: $inspector-head-border;
+			color: $inspector-menu-background;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+// Respond-To Mixin
+//
+// $media - name of the breakpoint
+//
+// Compatibility untested.
+@mixin respond-to($media) {
+  // Landscape phones and down
+  @if $media == xs {
+    @media (min-width: $screen-xs) { @content; }
+  }
+  @if $media == xs-img {
+    @media (min-width: $screen-xs-img) { @content; }
+  }
+  // Landscape phones and down
+  @if $media == sm {
+    @media (min-width: $screen-sm) { @content; }
+  }
+  @if $media == sm-img {
+    @media (min-width: $screen-sm-img) { @content; }
+  }
+  // Landscape phones and down
+  @if $media == md {
+    @media (min-width: $screen-md) { @content; }
+  }
+  // Landscape phones and down
+  @if $media == lg {
+    @media (min-width: $screen-lg) { @content; }
+  }
+  // Landscape phones and down
+  @if $media == lgslider {
+    @media (min-width: $screen-lgslider) { @content; }
+  }
+  // Landscape phones and down
+  @if $media == xlg {
+    @media (min-width: $screen-xlg) { @content; }
+  }
+
+}
+

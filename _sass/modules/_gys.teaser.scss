@@ -1,0 +1,199 @@
+.gysTeaser {
+  width: 100%;
+  max-width: 280px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: $color-bg-1;
+  color: $color-text-3;
+  z-index: $z-index--base +40;
+
+  &:before {
+    content:"";
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg) translateX(-50%);
+    background: $color-bg-2;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+  }
+
+  // close
+  &__close {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: $color-bg-2;
+    color: $color-text-3;
+    z-index: $z-index--base +25;
+    cursor: pointer;
+    opacity: .55;
+    transition: opacity .3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:before {
+      @extend .gysIcon;
+      content: $gys-close;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8px;
+    }
+  }
+
+  // figure
+  &__figure {
+    width: 100%;
+    padding-bottom: 55%;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+      @extend .gysIcon;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 40px;
+      z-index: $z-index--base +5;
+    }
+
+    &:after {
+      content: "";
+      width: 8px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: $z-index--base +5;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1.1);
+      transition: transform 1.1s ease-in-out;
+      position: absolute;
+      z-index: $z-index--base;
+    }
+  }
+  &--poi &__figure:before {content: $icon-group--poi;}
+  &--poi &__figure:after {@include gradient(poi);}
+  &--beach &__figure:before {content: $icon-group--beach;}
+  &--beach &__figure:after {@include gradient(beach);}
+  &--hike &__figure:before {content: $icon-group--hike;}
+  &--hike &__figure:after {@include gradient(hike);}
+  &--bike &__figure:before {content: $icon-group--bike;}
+  &--bike &__figure:after {@include gradient(bike);}
+  &:hover &__figure img {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  // content
+  &__content {
+    padding: 15px;
+    overflow: hidden;
+  }
+
+  // link
+  &__link {
+    min-height: 25px;
+    background: $color-bg-2;
+    padding: 5px 15px;
+    position: relative;
+    z-index: $z-index--base +10;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:before {
+      @extend .gysIcon;
+      content: $gys-arrow-right;
+      position: absolute;
+      font-size: 14px;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // list
+  &__list {
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      line-height: 30px;
+      padding-left: 40px;
+      position: relative;
+
+      &:before {
+        @extend .gysIcon;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        font-size: 20px;
+      }
+
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    span[class^="gys-"], span[class*=" gys-"] {
+      width: 90px;
+      padding-left: 30px;
+      white-space: nowrap;
+    }
+    span[class^="gys-"]:before, span[class*=" gys-"]:before {
+      position: absolute;
+      left: 0;
+      top: 6px;
+    }
+
+    span {
+      float: right;
+      position: relative;
+      display: inline-block;
+
+      &:before {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+    }
+
+  }
+
+  // info
+  &__info {
+    max-height: 120px;
+    overflow: hidden;
+  }
+
+  // name
+  &__name,
+  &__group {
+    font-weight: $font-weight--bold;
+  }
+  &__group {
+    margin-bottom: 10px;
+  }
+
+}

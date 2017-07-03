@@ -1,0 +1,178 @@
+// Body Preferences
+$body-background:				#fff !default;
+	
+// FONTS - TEXT	
+$font-family--base:				'Open Sans', sans-serif !default;
+$font-family--brand:			'ff-enzo-web', sans-serif !default;
+	
+// FONTS - ICON	
+$font-family--iconfont:			'gysfont' !default;
+	
+// FONT - WEIGHT	
+$font-weight--light: 			200 !default;
+$font-weight--normal: 			300 !default;
+$font-weight--bold:   			500 !default;
+$font-weight--xbold:   			600 !default;
+
+// FONT - SIZE	
+$font-size--highlight:      	35px !default;
+$font-size--xxxlarge: 			35px !default;
+$font-size--xxlarge: 			28px !default;
+$font-size--xlarge: 			20px !default;
+$font-size--large: 				18px !default;
+$font-size--medium: 			16px !default;
+$font-size--base: 				14px !default;
+$font-size--small: 				14px !default;
+$font-size--smallest: 			12px !default;
+$font-size--mainnavi:       	13px !default;
+	
+// LINEHEIGHT	
+$line-height--base:				24px;
+$line-height--medium:			1.2em;
+$line-height--large:			1.4em;
+	
+// BRAND - COLORS	
+$color-brand-primary:			#193540  !default;
+	
+// BG - COLORS	
+$color-bg-1:					#193540 !default;
+$color-bg-2:					#405D64 !default;
+$color-bg-3:					#fff !default; 
+$color-bg-4:					#304a53 !default;
+$color-bg-5:					#5f7884 !default;
+$color-bg-6:					#00ff00 !default;
+$color-bg-7:					#e2cc31 !default;
+
+
+// BG - COLORS
+$color-bg-layer:				rgba(0,0,0,.45) !default;
+$color-bg-whitelayer:			rgba(255,255,255,.75) !default;
+	
+// INPUT - COLORS	
+$color-input-1:					#aaaaaa !default;
+$color-input-2:					#dddddd !default;
+	
+// TEXT - COLORS	
+$color-text-1:					#333333 !default;
+$color-text-2:					#555555 !default;
+$color-text-3:					#ffffff !default;
+$color-text-4:					#8f939c !default;
+	
+// BREAKPOINTS	
+$screen-xs: 					0 !default;
+$screen-xs-img: 				350px !default;
+$screen-sm: 					565px !default;
+$screen-sm-img: 				800px !default;
+$screen-md: 					955px !default;
+$screen-lg: 					1100px !default;
+$screen-lgslider: 				1550px !default;
+$screen-xlg: 					2000px !default;
+	
+// BREAKPOINTS - Wrapper	
+$screen-wrapper--sm: 			490px !default;
+$screen-wrapper--md: 			720px !default;
+$screen-wrapper--lg: 			1260px !default;
+	
+	
+// ANIMATIONS	
+$transition-duration: 			.3s !default;
+$transition-duration--fast: 	.2s !default;
+$transition-duration--slow: 	.55s !default;
+$transition-duration--slower:	1s !default;
+$transition-ease:     			ease-in-out !default;
+$transition-ease--bezier:   	cubic-bezier(0.395, 0.105, 0.000, 1.110) !default;
+	
+// Z-INDEX	
+$z-index--base:         		1;
+$z-index--dropdown:     		100;
+$z-index--sw-mobile:    		2000;
+$z-index--searchwizard:  		3000;
+$z-index--menu:  				4000;
+$z-index--header:       		6000;
+$z-index--notification: 		7000;
+$z-index--modal:        		8000;
+$z-index--highest:      		9000;
+$z-index--pleaseHelpMe: 		9999;
+	
+// OPACITY	
+$opacity--base:					1;
+$opacity--low:					.8;
+$opacity--modal:				.5;
+$opacity--high:					.2;
+	
+// UI ELEMENTS	
+$border-radius--normal: 		5px !default;
+$border-radius--small:  		0 !default;
+$border-radius--large:  		0 !default;
+	
+// TEXT-SHADOW	
+$text-shadow--light:			1px 1px 1px rgba(0,0,0,.2) !default;
+$text-shadow--default:			3px 3px 3px rgba(0,0,0,.4) !default;
+$text-shadow--dark:				3px 3px 3px rgba(0,0,0,.95) !default;
+	
+// BOX-SHADOW	
+$box-shadow--wrapper:			0px 0px 10px rgba(0,0,0,.4) !default;
+$box-shadow--default:			1px 1px 4px rgba(0,0,0,.4) !default;
+$box-shadow--dropshadow:		0px 2px 2px rgba(0,0,0,.4) !default;
+$box-shadow--layer:				0 0 5px rgba(0,0,0,.4) !default;
+$box-shadow--layerdark:			0 0 2px rgba(0,0,0,.8) !default;
+$box-shadow--advicelist:		3px 3px 6px rgba(0,0,0,.95) !default;
+
+
+
+
+
+// Header height
+$header-height--xs: 50px;
+$header-height--sm: 70px;
+$header-height--md: 155px;
+
+
+
+
+$color-group--hotel-light: 		#ff1d25;
+$color-group--hotel-dark: 		#93278f;
+$color-group--poi-light: 		#ff9900;
+$color-group--poi-dark: 		#ff6699;
+$color-group--beach-light: 		#33ccff;
+$color-group--beach-dark: 		#3366ff;
+$color-group--hike-light: 		#66cc00;
+$color-group--hike-dark: 		#ff9900;
+$color-group--bike-light: 		#0099ff;
+$color-group--bike-dark: 		#00cc33;
+
+
+// iconfont
+$gys-arrow-down: "\e900";
+$gys-arrow-left: "\e901";
+$gys-arrow-right: "\e902";
+$gys-arrow-up: "\e903";
+$gys-beach-active: "\e904";
+$gys-beach-family: "\e905";
+$gys-beach-party: "\e906";
+$gys-beach-relax: "\e907";
+$gys-beach: "\e908";
+$gys-check: "\e909";
+$gys-close: "\e90a";
+$gys-out-cycle: "\e90b";
+$gys-out-distance: "\e90c";
+$gys-out-level: "\e90d";
+$gys-out-time: "\e90e";
+$gys-out-walking: "\e90f";
+$gys-POI-A: "\e910";
+$gys-poi-activity: "\e911";
+$gys-POI-B: "\e912";
+$gys-poi-eatdrink: "\e913";
+$gys-poi-hotel: "\e914";
+$gys-poi-information: "\e915";
+$gys-poi-more: "\e916";
+$gys-poi-publicfacilty: "\e917";
+$gys-poi-sight: "\e918";
+$gys-poi-target: "\e919";
+$gys-menue: "\e91a";
+$icon-group--hotel:       ""; 
+$icon-group--poi:       $gys-poi-target;  
+$icon-group--beach:       $gys-beach; 
+$icon-group--hike:        $gys-out-walking; 
+$icon-group--bike:        $gys-out-cycle; 
+
