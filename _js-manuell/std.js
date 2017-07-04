@@ -20,6 +20,7 @@ function cmsInspector( actElem ) {
 		// sidebar
 		case 'sidebar':
 			$( '.cmsInspector' ).removeClass('cmsInspector--full');
+			$( '.cmsInspector' ).removeAttr('style');
 			break;
 
 		// window
@@ -64,3 +65,31 @@ function cmsPopup()
     cmspopup = window.open("inspector.html","StdPopup",winstr);
 	cmspopup.focus();
 } 
+
+
+
+
+
+
+
+
+$( function() {
+
+	$( "#cmsInspector" ).draggable({
+		start: function() {
+			$( this ).addClass('noTransition');
+		},
+		drag: function() {
+
+		},
+		stop: function() {
+
+		}
+	});
+	$( "#cmsInspector" ).resizable();
+
+} );
+
+
+
+
