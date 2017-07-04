@@ -209,7 +209,14 @@ $inspectorNavi-head-color:				#1a1a1a !default;
 
 
 
-
+.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se  {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 20px;
+	height: 20px;
+	background: red;
+}
 
 
 
