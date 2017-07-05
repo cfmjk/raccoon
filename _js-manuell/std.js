@@ -102,19 +102,15 @@ $( function() {
 		},
 		resize: function( event, ui ) {
 			var maxHeight = $( document ).outerHeight();
-			var windowWidth = $( document ).outerWidth();
+			//var windowWidth = $( document ).outerWidth();
 			var minHeight = "300";
-			var maxWidth = "1000";
+			var maxWidth = "800";
 			var minWidth = "300";
-
-			if( windowWidth >= maxWidth ) {
-				maxWidth = windowWidth;
-			}
 
 			ui.size.height = ui.size.height + heightDifference;
 
 			if( ui.size.height >= maxHeight ) {
-				ui.size.height = maxHeight - heightDifference;
+				ui.size.height = maxHeight;
 			}
 
 			if( ui.size.height <= minHeight ) {
