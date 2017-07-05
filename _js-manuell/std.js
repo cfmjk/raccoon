@@ -15,32 +15,36 @@ function cmsInspector( actElem ) {
 		// fullscreen
 		case 'fullscreen':
 			$( '.cmsInspector' ).addClass('cmsInspector--full');
+			$( '.cmsInspector' ).removeClass('cmsInspector--sidebar');
+			$( "#cmsInspector" ).draggable( "enable" );
 			break;
 
 		// sidebar
 		case 'sidebar':
 			$( '.cmsInspector' ).removeClass('cmsInspector--full');
 			$( '.cmsInspector' ).removeAttr('style');
+			$( '.cmsInspector' ).addClass('cmsInspector--sidebar');
+			$( "#cmsInspector" ).draggable( "disable" );
 			break;
 
 		// window
 		case 'window':
-			$( '.cmsInspector' ).removeClass('cmsInspector--open');
+			$( '.cmsInspector' ).removeClass('isOpen');
 			cmsPopup();
 			break;
 
 		// open
 		case 'open':
-			$( '.cmsInspector' ).addClass('cmsInspector--open');
+			$( '.cmsInspector' ).addClass('isOpen');
 			break;
 
 		// close
 		case 'close':
-			$( '.cmsInspector' ).removeClass('cmsInspector--open');
+			$( '.cmsInspector' ).removeClass('isOpen');
 			break;
 
 		default:
-			$( '.cmsInspector' ).removeClass('cmsInspector--open');
+			$( '.cmsInspector' ).removeClass('isOpen');
 
 	}
 
@@ -77,16 +81,55 @@ $( function() {
 
 	$( "#cmsInspector" ).draggable({
 		start: function() {
-			$( this ).addClass('noTransition');
+			$( this ).addClass('dragging');
 		},
-		drag: function() {
+		drag: function( event, ui) {
 
 		},
 		stop: function() {
+			$( this ).removeClass('dragging');
+		},
+		handle: ".cmsInspectorNavi",
+		containment: "window"
+	});
+	$( ".cmsInspector--sidebar" ).draggable( "disable" );
 
+
+	$( "#cmsInspector" ).resizable({
+		start: function() {
+			$( this ).addClass('noTransition');
+			heightDifference = $(this).outerHeight() - $(this).height();
+		},
+		resize: function( event, ui ) {
+			var maxHeight = $( document ).outerHeight();
+			var windowWidth = $( document ).outerWidth();
+			var minHeight = "300";
+			var maxWidth = "1000";
+			var minWidth = "300";
+
+			if( windowWidth >= maxWidth ) {
+				maxWidth = windowWidth;
+			}
+
+			ui.size.height = ui.size.height + heightDifference;
+
+			if( ui.size.height >= maxHeight ) {
+				ui.size.height = maxHeight - heightDifference;
+			}
+
+			if( ui.size.height <= minHeight ) {
+				ui.size.height = minHeight;
+			}
+
+			if( ui.size.width >= maxWidth ) {
+				ui.size.width = maxWidth;
+			}
+
+			if( ui.size.width <= minWidth ) {
+				ui.size.width = minWidth;
+			}
 		}
 	});
-	$( "#cmsInspector" ).resizable();
 
 } );
 
