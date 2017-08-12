@@ -1,29 +1,17 @@
-// ctaButton
+//*--------------------------------------------------------------*
+//  ctaButton
+//*--------------------------------------------------------------*
+//
 .ctaButton {
 
 	a {
 		display: inline-block;
-		color: $color-text-primary;
+		color: $color-text-1;
 		position: relative;
 		padding: 5px 40px 5px 0;
 		line-height: 20px;
 		text-align: right;
 		font-weight: $font-weight--bold;
-
-		&:before {
-	        @extend .gefinalIcon;
-	        content: "\e906";
-			width: 30px;
-			height: 30px;
-			line-height: 30px;
-			position: absolute;
-			right: 0;
-			top: 0;
-			background-color: $color-brand-primary;
-			color: $color-text-tertiary;
-			text-align: center;
-			border-radius: 50%;
-		}
 	}
 
 	// position
@@ -39,82 +27,4 @@
 		text-transform: uppercase;
 	}
 
-	// video 
-	&--video,
-	&--video-footer,
-	&--video-slider {
-
-		a {
-			height: 50px;
-			line-height: 50px;
-			border-radius: 25px;
-			padding: 0 70px 0 20px;
-			background-color: rgba(0,0,0,.55);
-			color: $color-text-tertiary;
-			font-size: $font-size--xxlarge;
-			text-transform: uppercase;
-			font-weight: $font-weight--light;
-
-			b {
-				font-weight: $font-weight--xbold;
-			}
-
-			@extend .ellipsis;
-
-			&:before {
-				content: "\e90b";
-				width: 50px;
-				height: 50px;
-				line-height: 50px;
-				color: $color-brand-primary;
-				background-color: $color-bg-secondary;
-				text-indent: 2px;
-			}
-		}
-	}
-	&--video-slider {
-		width: 100%;
-		height: 0px;
-		position: relative;
-		padding: 0 20px;
-
-		a {
-			position: absolute;
-			right: 35px;
-			top: -90px;
-
-			@include respond-to(sm) {
-				top: -70px;
-			}
-		}
-	}
-	&--video-footer {
-
-		@include respond-to(sm) {
-			margin-left: 30px;
-		}
-
-		a {
-			height: 30px;
-			line-height: 30px;
-			padding: 0 50px 0 0;
-			border-radius: none;
-			background-color: transparent;
-			font-size: $font-size--large;
-
-			&:before {
-				width: 30px;
-				height: 30px;
-				line-height: 30px;
-			}
-		}
-	}
-
-	// outline
-	&--outline a {
-		border: 1px solid $color-brand-primary;
-		padding-left: 20px;
-		border-radius: 30px;
-		padding-right: 50px;
-	}
 }
