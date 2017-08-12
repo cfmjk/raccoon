@@ -34,7 +34,7 @@ $inspector-head-border:				#009bf3 !default;
 
 // cmsInspectorNavi
 $inspectorNavi-head-color:				#1a1a1a !default;
-		
+
 
 // cmsInspector
 .cmsInspector {
@@ -50,6 +50,7 @@ $inspectorNavi-head-color:				#1a1a1a !default;
 	transition: right .55s ease-in-out, opacity .3s ease-in-out;
 	opacity: 0;
 	color: $inspectorNavi-head-color;
+	z-index: $z-index--header;
 
 	// sidebar
 	&--sidebar {
@@ -239,20 +240,3 @@ $inspectorNavi-head-color:				#1a1a1a !default;
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
