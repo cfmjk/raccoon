@@ -32,6 +32,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.3.0",
     "gulp-jshint": "^2.0.4",
+    "gulp-livereload": "^3.8.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",
     "gulp-nodemon": "^2.2.1",

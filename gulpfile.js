@@ -19,6 +19,7 @@ var rename = require('gulp-rename');
 var imagemin = require ('gulp-imagemin');
 var minifyhtml = require ('gulp-minify-html');
 var nodemon = require ('gulp-nodemon');
+var livereload = require ('gulp-livereload');
 
 
 //*--------------------------------------------------------------*
@@ -37,9 +38,11 @@ gulp.task('styles', function () {
 
     gulp.src( src )
         .pipe( sass() )
+		//.on('error', errorLog)
         .pipe( autoprefixer() )
-        .pipe( minifyCSS() )
-        .pipe( gulp.dest( dest ) );
+        //.pipe( minifyCSS() )
+        .pipe( gulp.dest( dest ) )
+        .pipe( livereload() );
 });
 
 
@@ -75,6 +78,8 @@ gulp.task('server',function(){
 //*--------------------------------------------------------------*
 //
 gulp.task('watch', function () {
+	var server = livereload.listen();
+
     gulp.watch('src/styles/**/*.scss', ['styles']);
     gulp.watch('src/scripts/**.js', ['scripts']);
     //gulp.watch('images-orig/**', ['images']);
