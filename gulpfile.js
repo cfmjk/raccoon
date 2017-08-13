@@ -58,7 +58,8 @@ gulp.task('scripts', function() {
     gulp.src( src )
 		.pipe( concat( name ) )
         .pipe( uglify() )
-        .pipe( gulp.dest( dest ) );
+        .pipe( gulp.dest( dest ) )
+        .pipe( livereload() );
 });
 
 //*--------------------------------------------------------------*
