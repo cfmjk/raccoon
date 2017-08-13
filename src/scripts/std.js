@@ -4,9 +4,6 @@
 
 
 
-
-
-
 $( function() {
 
 	$( "#cmsInspector" ).draggable({
