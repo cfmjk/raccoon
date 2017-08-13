@@ -18,13 +18,14 @@ var uglify = require ('gulp-uglify');
 var rename = require('gulp-rename');
 var imagemin = require ('gulp-imagemin');
 var minifyhtml = require ('gulp-minify-html');
+var nodemon = require ('gulp-nodemon');
 
 
 //*--------------------------------------------------------------*
 // DEFAULT
 //*--------------------------------------------------------------*
 //
-gulp.task('default', ['styles', 'scripts', 'watch']);
+gulp.task('default', ['server', 'styles', 'scripts', 'watch']);
 
 //*--------------------------------------------------------------*
 // styles
@@ -47,14 +48,25 @@ gulp.task('styles', function () {
 //*--------------------------------------------------------------*
 //
 gulp.task('scripts', function() {
-	var src = 'scripts/*.js';
-		dest = 'public/_js',
+	var src = 'src/scripts/*.js';
+		dest = 'public/js',
 		name = 'main.js';
 
     gulp.src( src )
 		.pipe( concat( name ) )
         .pipe( uglify() )
         .pipe( gulp.dest( dest ) );
+});
+
+//*--------------------------------------------------------------*
+// SERVER
+//*--------------------------------------------------------------*
+//
+gulp.task('server',function(){
+    nodemon({
+        'script': 'gulp/server.js',
+        'ignore': 'src/scripts/*.js'
+    });
 });
 
 

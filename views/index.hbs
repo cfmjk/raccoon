@@ -6,7 +6,6 @@
 
 
 
-
 <!-- cmsHeader -->
 <div id="cmsInspector" class="cmsInspector cmsInspector--sidebar">
 
@@ -66,7 +65,11 @@
 
 <div class="wrapper">
 
-
+	{{# if magic }}
+		Magic happens here
+	{{ else }}
+		boooring
+	{{/if}}
 
 	<div class="row">
 		<div class="col-sm-6 col-md-4 col-lg-3"><div class="test"></div></div>
