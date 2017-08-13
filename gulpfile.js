@@ -8,16 +8,16 @@ var gulp = require('gulp');
 // PLUGINS
 //*--------------------------------------------------------------*
 //
-var sass = require ('gulp-sass'),
-	minifyCSS = require ('gulp-minify-css'),
-    autoprefixer = require ('gulp-autoprefixer'),
-	changed = require('gulp-changed'),
-    jshint = require ('gulp-jshint'),
-    concat = require ('gulp-concat'),
-    uglify = require ('gulp-uglify'),
-    rename = require('gulp-rename'),
-    imagemin = require ('gulp-imagemin'),
-    minifyhtml = require ('gulp-minify-html');
+var sass = require ('gulp-sass');
+var minifyCSS = require ('gulp-minify-css');
+var autoprefixer = require ('gulp-autoprefixer');
+var changed = require('gulp-changed');
+var jshint = require ('gulp-jshint');
+var concat = require ('gulp-concat');
+var uglify = require ('gulp-uglify');
+var rename = require('gulp-rename');
+var imagemin = require ('gulp-imagemin');
+var minifyhtml = require ('gulp-minify-html');
 
 
 //*--------------------------------------------------------------*
@@ -27,12 +27,12 @@ var sass = require ('gulp-sass'),
 gulp.task('default', ['styles', 'scripts', 'watch']);
 
 //*--------------------------------------------------------------*
-// SASS
+// styles
 //*--------------------------------------------------------------*
 //
 gulp.task('styles', function () {
-	var src = '_sass/main.scss',
-		dest = '_css';
+	var src = 'src/styles/main.scss',
+		dest = 'public/css';
 
     gulp.src( src )
         .pipe( sass() )
@@ -47,8 +47,8 @@ gulp.task('styles', function () {
 //*--------------------------------------------------------------*
 //
 gulp.task('scripts', function() {
-	var src = '_js-lib/*.js';
-		dest = '_js',
+	var src = 'scripts/*.js';
+		dest = 'public/_js',
 		name = 'main.js';
 
     gulp.src( src )
@@ -63,7 +63,7 @@ gulp.task('scripts', function() {
 //*--------------------------------------------------------------*
 //
 gulp.task('watch', function () {
-    gulp.watch('_sass/**/*.scss', ['styles']);
-    gulp.watch('_js-lib/**.js', ['scripts']);
+    gulp.watch('src/styles/**/*.scss', ['styles']);
+    gulp.watch('src/scripts/**.js', ['scripts']);
     //gulp.watch('images-orig/**', ['images']);
 });
