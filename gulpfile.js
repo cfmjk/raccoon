@@ -26,7 +26,8 @@ var livereload = require ('gulp-livereload');
 // DEFAULT
 //*--------------------------------------------------------------*
 //
-gulp.task('default', ['server', 'styles', 'scripts', 'watch']);
+gulp.task('default', ['server', 'styles', 'scripts', 'handlebars', 'watch']);
+
 
 //*--------------------------------------------------------------*
 // styles
@@ -37,21 +38,22 @@ gulp.task('styles', function () {
 		dest = 'public/css';
 
     gulp.src( src )
-        .pipe( sass() )
-		//.on('error', errorLog)
+        .pipe( sass()
+			.on('error', sass.logError)
+		)
         .pipe( autoprefixer() )
-        //.pipe( minifyCSS() )
+        .pipe( minifyCSS() )
         .pipe( gulp.dest( dest ) )
         .pipe( livereload() );
 });
 
 
 //*--------------------------------------------------------------*
-// JS
+// scripts
 //*--------------------------------------------------------------*
 //
 gulp.task('scripts', function() {
-	var src = 'src/scripts/*.js';
+	var src = 'src/scripts/*.js',
 		dest = 'public/js',
 		name = 'main.js';
 
@@ -61,6 +63,19 @@ gulp.task('scripts', function() {
         .pipe( gulp.dest( dest ) )
         .pipe( livereload() );
 });
+
+
+//*--------------------------------------------------------------*
+// handlebars
+//*--------------------------------------------------------------*
+//
+gulp.task('handlebars', function() {
+	var src = 'views/**/*.hbs';
+
+    gulp.src( src )
+        .pipe( livereload() );
+});
+
 
 //*--------------------------------------------------------------*
 // SERVER
@@ -83,5 +98,6 @@ gulp.task('watch', function () {
 
     gulp.watch('src/styles/**/*.scss', ['styles']);
     gulp.watch('src/scripts/**.js', ['scripts']);
+    gulp.watch('views/**/*.hbs', ['handlebars']);
     //gulp.watch('images-orig/**', ['images']);
 });
