@@ -1,0 +1,359 @@
+$rpmWrapper-background-1:				#f2f2f2;
+$rpmWrapper-background-2:				#dadada;
+$rpmWrapper-background-2:				transparent;
+
+$rpmLogin-background:					$color-bg-3;
+$rpmLogin-shadow:						$box-shadow--layer;
+$rpmLogin-border--radius:				0;
+
+$rpmLogin-header-background:			linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+
+
+
+//*--------------------------------------------------------------*
+//  RAMP LOGIN
+//*--------------------------------------------------------------*
+//
+.rampLogin {
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	padding: 15px;
+	margin: 0 auto;
+
+	@include respond-to(sm) {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	// inner
+	&__inner {
+		width: 100%;
+		background: $rpmLogin-background;
+		box-shadow: $rpmLogin-shadow;
+		border-radius: $rpmLogin-border--radius;
+		overflow: hidden;
+		position: relative;
+	}
+
+	// header
+	&__header {
+		width: 100%;
+		height: 150px;
+		background: $rpmLogin-header-background;
+		color: $color-text-3;
+		padding: 95px 20px 0 20px;
+		text-align: center;
+		font-weight: $font-weight--light;
+		position: relative;
+		font-size: $font-size--xxlarge;
+
+		&:before {
+			content: "layers";
+			@extend .cmsMaterialIcon;
+			font-size: 65px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			margin-top: -20px;
+			display: none;
+		}
+
+		img {
+			width: 65px;
+			height: auto;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			margin-top: -20px;
+		}
+	}
+
+	// content
+	&__content {
+		padding: 20px;
+	}
+
+	// input
+	&__input {
+		position: relative;
+		margin-bottom: 15px;
+
+		label {
+			width: 100%;
+			height: auto;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-40%);
+			transition: all .3s ease;
+			color: $color-input-1;
+		}
+
+		input {
+			width: 100%;
+			padding: 20px 0 5px 0;
+			outline: none;
+			position: relative;
+			background: none;
+			border: 0;
+			border-radius: none;
+			color: $color-text-1;
+			font-size: 18px;
+			font-weight: 400;
+
+			&:focus	~ label,
+			&:valid	~ label {
+				color: $color-input-2;
+				transform: translate(-12.55%, -110%) scale(0.75);
+			}
+
+			&:focus	~ span:before {
+				width: 100%;
+				//left: 0;
+			}
+		}
+
+		span {
+			width: 100%;
+			height: 1px;
+			display: block;
+			background: $color-input-1;
+			position: relative;
+
+			&:before {
+				content: "";
+				width: 0;
+				height: 2px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				//transform: translateY(-50%);
+				background: $color-brand-1;
+				transition: all .5s ease;
+			}
+
+			&:after {
+				@extend .cmsMaterialIcon;
+				position: absolute;
+				right: 0;
+				top: -28px;
+				font-size: 20px;
+				color: $color-input-1;
+			}
+		}
+
+		&--user span:after {content: "perm_identity";}
+		&--pw span:after {content: "lock_outline";}
+	}
+
+	// button
+	&__button {
+		width: 100%;
+		height: 40px;
+		background: $color-brand-1;
+		border: 0;
+		border-radius: 20px;
+		color: $color-text-3;
+		margin-top: 10px;
+		cursor: pointer;
+		font-size: 16px;
+		font-weight: $font-weight--light;
+		transition: width .3s ease;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+
+		&:before {
+			content: "";
+			width: 20px;
+			height: 20px;
+			border: 2px solid $color-bg-3;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) scale(.55);
+			opacity: 0;
+			transition: all .1s ease;
+		}
+
+		&:after {
+			content: "";
+			width: 30px;
+			height: 4px;
+			background: $color-brand-1;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) scale(.55);
+			transition: all .1s ease;
+			opacity: 0;
+		}
+	}
+
+	// loading
+	&--loading &__button {
+		width: 40px;
+		height: 40px;
+		position: relative;
+
+		span {
+			opacity: 0;
+		}
+
+		&:before {
+			opacity: 1;
+			transition: all .5s ease;
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		&:after {
+			opacity: 1;
+			transition: all .5s ease;
+			animation: rapmLoginLoading 1s infinite linear;
+		}
+	}
+
+
+	// success
+	&__success {
+		position: absolute;
+		top: 200%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(.55);
+		text-align: center;
+		color: $color-bg-3;
+		opacity: 0;
+		transition: transform .55s ease, opacity .55s ease;
+		transition-delay: .25s;
+		font-size: $font-size--large;
+
+		&:before {
+			content: "check_circle";
+			@extend .cmsMaterialIcon;
+			font-size: 80px;
+			display: block;
+			margin-bottom: 40px;
+		}
+
+		span {
+			display: block;
+			font-size: $font-size--smallest;
+			margin-top: 15px;
+			color: rgba($color-text-3,.85);
+		}
+	}
+
+
+	// info
+	&__info {
+		font-size: $font-size--smallest;
+		font-style: italic;
+		line-height: $line-height--base;
+		margin-bottom: 10px;
+		color: $color-input-1;
+	}
+
+	// error
+	&__error {
+		font-size: $font-size--smallest;
+		font-style: italic;
+		color: rgba($color-bg-5,.55);
+		line-height: $line-height--base;
+		margin-bottom: 10px;
+		display: none;
+	}
+
+
+	// success
+	&--success &__button {
+		width: 40px;
+		height: 40px;
+		position: relative;
+		left: 50%;
+		background: $rpmLogin-header-background;
+		transform: translateX(-50%) scale(1);
+		transition: all .55s ease;
+
+		span,
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		&:after {
+			width: 40px;
+			height: 40px;
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+			background: $rpmLogin-header-background;
+			transform: translateX(-50%) scale(30);
+			transition: transform .55s ease, background .55s ease;
+			display: block;
+			opacity: 1;
+			border-radius: 50%;
+		}
+	}
+	// success
+	&--success &__success {
+		top: 50%;
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+
+	// error
+	&--error &__error {
+		display: block;
+	}
+	// error
+	&--error &__info {
+		display: none;
+	}
+	// error
+	&--error &__input span:after {
+		//content: "error_outline";
+		color: rgba($color-bg-5,.55);
+	}
+}
+
+
+@keyframes rapmLoginLoading {
+	from {transform: translate(-50%, -50%) rotate(0) scale(1);}
+	to {transform: translate(-50%, -50%) rotate(360deg) scale(1);}
+}
+
+
+
+
+
+//*--------------------------------------------------------------*
+//  RAMP Wrapper
+//*--------------------------------------------------------------*
+//
+.rampWrapper {
+	width: 100%;
+	background: $rpmWrapper-background-1;
+	overflow: hidden;
+
+	@include respond-to(sm) {
+		height: 100%;
+		position: absolute;
+		background: #1a1a1a;
+	}
+
+	&:before {
+		content: "";
+		width: 100%;
+		height: 50%;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		background: $rpmWrapper-background-2;
+	}
+}

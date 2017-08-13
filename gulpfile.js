@@ -20,6 +20,7 @@ var imagemin = require ('gulp-imagemin');
 var minifyhtml = require ('gulp-minify-html');
 var nodemon = require ('gulp-nodemon');
 var livereload = require ('gulp-livereload');
+var handlebars = require('gulp-compile-handlebars');
 
 
 //*--------------------------------------------------------------*
@@ -73,6 +74,9 @@ gulp.task('handlebars', function() {
 	var src = 'views/**/*.hbs';
 
     gulp.src( src )
+		//.pipe(handlebars())
+		//.pipe(rename('login.html'))
+        //.pipe(gulp.dest('dist'))
         .pipe( livereload() );
 });
 
