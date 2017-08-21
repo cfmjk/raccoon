@@ -220,7 +220,7 @@ $rpmLogin-header-background:			linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, 
 		&:after {
 			opacity: 1;
 			transition: all .5s ease;
-			animation: rapmLoginLoading 1s infinite linear;
+			animation: rampLoginLoading 1s infinite linear;
 		}
 	}
 
@@ -328,7 +328,7 @@ $rpmLogin-header-background:			linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, 
 }
 
 
-@keyframes rapmLoginLoading {
+@keyframes rampLoginLoading {
 	from {transform: translate(-50%, -50%) rotate(0) scale(1);}
 	to {transform: translate(-50%, -50%) rotate(360deg) scale(1);}
 }
