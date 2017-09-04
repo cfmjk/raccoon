@@ -105,3 +105,6 @@ gulp.task('watch', function () {
     gulp.watch('views/**/*.hbs', ['handlebars']);
     //gulp.watch('images-orig/**', ['images']);
 });
+
+
+// need images to compress
